@@ -1,0 +1,39 @@
+services:
+  - type: worker
+    name: askcryptoai-bot
+    env: python
+    plan: free
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: FREE_LIMIT
+        value: "10"
+      - key: PRO_PACK_SIZE
+        value: "100"
+      - key: PRO_PRICE_USD
+        value: "2.50"
+      - key: PREMIUM_PRICE_USD
+        value: "7.00"
+      - key: PREMIUM_DAYS
+        value: "30"
+      - key: PREMIUM_FAIRUSE_DAILY
+        value: "300"
+      - key: FREE_MODEL
+        value: "gpt-4o-mini"
+      - key: PREMIUM_MODEL
+        value: "gpt-4o"
+      - key: ADMIN_USER_ID
+        value: "0"
+      - key: COOLDOWN_FREE_MS
+        value: "2000"
+      - key: COOLDOWN_PREMIUM_MS
+        value: "500"
+      - key: REF_BONUS_PER_FRIEND
+        value: "2"
+      - key: REF_MAX_FRIENDS
+        value: "500"
